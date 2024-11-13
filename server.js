@@ -8,7 +8,11 @@ const PORT = 3000;
 
 connectDB();
 
-app.use(express.urlencoded({extended: true}));
+// Analyse le contenu JSON dans le corps de la requete
+app.use(express.json());
+
+// Analyse le contenu du formulaire dans le corps de la requete
+// app.use(express.urlencoded({extended: true}));
 
 app.use('/api/v1/', require(path.join(__dirname, 'config/router')));
 
